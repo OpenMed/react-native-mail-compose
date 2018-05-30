@@ -35,7 +35,7 @@ import java.util.UUID;
 
 
 public class RNMailComposeModule extends ReactContextBaseJavaModule {
-    private static final int ACTIVITY_SEND = 129382;
+    private static final int ACTIVITY_SEND = 101;
 
     private Promise mPromise;
 
@@ -46,7 +46,7 @@ public class RNMailComposeModule extends ReactContextBaseJavaModule {
             if (requestCode == ACTIVITY_SEND) {
                 if (mPromise != null) {
                     if (resultCode == Activity.RESULT_CANCELED) {
-                        mPromise.reject("cancelled", "Operation has been cancelled");
+                        mPromise.reject("cancelled","cancellll.....");
                     } else {
                         mPromise.resolve("sent");
                     }
@@ -312,7 +312,7 @@ public class RNMailComposeModule extends ReactContextBaseJavaModule {
         addAttachments(intent, getArray(data, "attachments"));
 
         intent.putExtra("exit_on_sent", true);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         try {
@@ -325,4 +325,3 @@ public class RNMailComposeModule extends ReactContextBaseJavaModule {
         }
     }
 }
-
